@@ -5,6 +5,9 @@ namespace App\Models;
 use App\Entities\Api;
 use CodeIgniter\Model;
 
+/**
+ * Model of random Images Api
+ */
 class ApiModel extends Model
 {
     protected $table = 'api';
@@ -20,7 +23,12 @@ class ApiModel extends Model
 
     protected $useSoftDeletes = false;
 
-    /** @noinspection PhpIncompatibleReturnTypeInspection */
+    /**
+     * Get a random image API from a short name
+     * @param string $short_name Short name of API
+     * @return Api A random images API
+     * @noinspection PhpIncompatibleReturnTypeInspection
+     */
     public function getFirstByShortName(string $short_name): Api
     {
         return $this->where('short_name', $short_name)->first();
