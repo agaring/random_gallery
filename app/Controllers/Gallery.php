@@ -21,4 +21,10 @@ class Gallery extends Controller
 
 
     }
+
+    public function delete()
+    {
+
+        echo "putain de test";
+    }
 }
