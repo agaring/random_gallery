@@ -4,6 +4,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\Comment_model;
 use App\Models\Image_model;
+use App\Models\Delete_model;
 
 class Gallery extends Controller
 {
@@ -18,13 +19,11 @@ class Gallery extends Controller
         $data['arrImages']      = $objImageModel->findall();
         // Affichage de la vue
         echo view('gallery_view',$data);
-
-
     }
 
     public function delete()
     {
-
-        echo "putain de test";
+        $objDeleteModel = new Delete_model();
+        $objDeleteModel->delete_student_id($id);
     }
 }

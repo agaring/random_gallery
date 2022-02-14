@@ -17,10 +17,6 @@ if(!isset($_GET['page'])){
     }
 }; 
 
-if(isset($_GET['sup'])){
-   $Gallery->delete();
-}
-
 
 ?>
 <!DOCTYPE html>
@@ -68,7 +64,7 @@ if(isset($_GET['sup'])){
                             <td><?= $comment->text;?></td>
                             <?php 
                                 if (is_null($lastId)){   ?>
-                                        <td><a href="http://rg.local/gallery?modif=<?= $comment->id ?>&page=<?= intval($_GET['page']); ?>&firstid=<?= $firstId ?>"><button type="button">Modifier</button></a>
+                                        <td><a href="<?= site_url("gallery/delete")."/".$comment->id."/".intval($_GET['page'])."/".$firstId ?>"><button type="button">Modifier</button></a>
                                         <a href="http://rg.local/gallery?sup=<?= $comment->id ?>&page=<?= intval($_GET['page']); ?>&firstid=<?= $firstId ?>"><button type="button">Supprimer</button></a></td>
                                     <?php
                                     }
