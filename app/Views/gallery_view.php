@@ -1,21 +1,5 @@
 <?php
-
 use App\Controllers\Gallery;
-
-if(!isset($_GET['page'])){
-    $_GET['page'] = 0;
-    $lastId = null;
-    $firstId = 0;
-
-}else {
-    if (isset($_GET['lastid'])){
-        $lastId = $_GET['lastid'];
-    }
-    if (isset($_GET['firstid'])){
-        $lastId = null;
-        $firstId = $_GET['firstid'];
-    }
-}; 
 
 
 ?>
@@ -53,7 +37,7 @@ if(!isset($_GET['page'])){
                 if ($image->id > $firstId) continue;
             }                       
             $count += 1;
-            ?>
+        ?>
             <tr>
                 <td><?= '<img src="https://' . $image->path_to_image . '" width="500" height="500" >';?></td>
                 <td>
@@ -62,17 +46,19 @@ if(!isset($_GET['page'])){
                     <table>
                         <tr>
                             <td><?= $comment->text;?></td>
+                            <td>
+
                             <?php 
                                 if (is_null($lastId)){   ?>
-                                        <td><a href="<?= site_url("gallery/delete")."/".$comment->id."/".intval($_GET['page'])."/".$firstId ?>"><button type="button">Modifier</button></a>
-                                        <a href="http://rg.local/gallery?sup=<?= $comment->id ?>&page=<?= intval($_GET['page']); ?>&firstid=<?= $firstId ?>"><button type="button">Supprimer</button></a></td>
+                                        <td><a href="<?= site_url("gallery/modify")."/".$comment->id."/". $page ."/".$firstId ?>"><button type="button">Modifier</button></a>
+                                        <a href="<?= site_url("gallery/modify")."/".$comment->id."/". $page ."/".$firstId ?>"><button type="button">Supprimer</button></a></td>
                                     <?php
                                     }
                                         else
                                     {
                                         ?>
-                                        <td><a href="http://rg.local/gallery?modif=<?= $comment->id ?>&page=<?= intval($_GET['page']); ?>&lastid=<?= $lastId ?>"><button type="button">Modifier</button></a>
-                                        <a href="http://rg.local/gallery?sup=<?= $comment->id ?>&page=<?= intval($_GET['page']); ?>&lastid=<?= $lastId ?>"><button type="button">Supprimer</button></a></td>
+                                        <td><a href="<?= site_url("gallery/delete")."/".$comment->id."/". $page ."/".$lastId ?>"><button type="button">Modifier</button></a>
+                                        <a href="<?= site_url("gallery/delete")."/".$comment->id."/". $page ."/".$lastId ?>"><button type="button">Supprimer</button></a></td>
 
                                     <?php } ?>        
                                             
@@ -90,14 +76,14 @@ if(!isset($_GET['page'])){
     </tbody>
 </table>
 
-<p><a href="<?php echo previous_url();?>">Retour</a></p>
+<p><a href="<?php echo site_url();?>">Retour</a></p>
 <?php 
     if (count($arrImages) > 10){
-        if ($_GET['page'] != 0){?>
-            <p><a href="http://rg.local/gallery?page=<?= intval($_GET['page']) - 1; ?>&firstid=<?= $firstId ?>">Précédant</a></p>
+        if ($page != 0){?>
+            <p><a href="<?= site_url("gallery/previous"). "/". $page - 1 . "/" . $firstId ?>">Précédant</a></p>
         <?php }
         if ($count == 10 ){?>
-            <p><a href="http://rg.local/gallery?page=<?= intval($_GET['page']) + 1; ?>&lastid=<?= $lastId ?>">Suivant</a></p>
+            <p><a href="<?= site_url("gallery/next"). "/" . $page + 1 . "/" . $lastId ?>">Suivant</a></p>
         <?php } ?>        
                 
     <?php } 
