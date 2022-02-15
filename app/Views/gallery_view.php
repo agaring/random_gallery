@@ -35,11 +35,20 @@ use App\Controllers\Gallery;
             if ($image->id < $lastId) continue;
             if (isset($firstId) and $firstId != 0){
                 if ($image->id > $firstId) continue;
-            }                       
+            }
             $count += 1;
         ?>
-            <tr>
-                <td><?= '<img src="https://' . $image->path_to_image . '" width="500" height="500" >';?></td>
+            <tr>    
+                <td>
+                    <form action="<?= site_url("gallery/add"); ?>" method="post">
+                    <input type="hidden" name="imageId" value="<?= $image->id?>" >
+                    <?= '<input type=image src="https://' . $image->path_to_image . '" width="500" height="500" >';?>
+                    <input type="text" name="comment" placeholder="Commentaire">
+                    
+                    <button type="submit">Ajouter</button>
+                    <br>
+                </form>
+                </td>
                 <td>
         <?php foreach($arrComments as $comment){
             if ($comment->image_id == $image->id){?>
@@ -50,15 +59,13 @@ use App\Controllers\Gallery;
 
                             <?php 
                                 if (is_null($lastId)){   ?>
-                                        <td><a href="<?= site_url("gallery/modify")."/".$comment->id."/". $page ."/".$firstId."/".null ?>"><button type="button">Modifier</button></a>
-                                        <a href="<?= site_url("gallery/delete")."/".$comment->id."/". $page ."/".$firstId."/" . null ?>"><button type="button">Supprimer</button></a></td>
+                                        <td><a href="<?= site_url("gallery/delete")."/".$comment->id?>"><button type="button">Supprimer</button></a></td>
                                     <?php
                                     }
                                         else
                                     {
                                         ?>
-                                        <td><a href="<?= site_url("gallery/modify")."/".$comment->id."/". $page ."/". null ."/".$lastId ?>"><button type="button">Modifier</button></a>
-                                        <a href="<?= site_url("gallery/delete")."/".$comment->id."/". $page ."/". null ."/".$lastId ?>"><button type="button">Supprimer</button></a></td>
+                                        <td><a href="<?= site_url("gallery/delete")."/".$comment->id?>"><button type="button">Supprimer</button></a></td>
 
                                     <?php } ?>        
                                             

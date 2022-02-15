@@ -6,7 +6,8 @@ use App\Models\Comment_model;
 use App\Models\Image_model;
 use App\Models\Delete_model;
 
-class Gallery extends Controller
+
+class Gallery extends BaseController
 {
 
     public function index($firstId = null, $lastId = null, $page = 0)
@@ -27,18 +28,13 @@ class Gallery extends Controller
         echo view('gallery_view',$data);
     }
 
-    public function delete($id = 0, $page = 0, $firstId = null, $lastId = null)
+    public function delete($id = 0)
     {
         $db = \Config\Database::connect();
         $builder = $db->table('comment');
         $builder->delete(['id' => $id]);
-
-        $this->index($firstId, $lastId, $page);
-    }
-
-    public function modify($id, $page, $firstid = null, $lastId = null)
-    {
         
+        $this->index();
     }
 
     public function next($page, $lastId){
@@ -47,6 +43,25 @@ class Gallery extends Controller
 
     public function previous($page, $firstId){
         $this->index($firstId, null, $page);
+    }
+
+    public function add(){
+        //insertion dans la bdd
+        $db = \Config\Database::connect();
+        $builder = $db->table('comment');
+
+        $imageId = $this->request->getPost('imageId');
+        $comment = $this->request->getPost('comment'); 
+
+        $data = [
+            'image_id'  => $imageId,
+            'text'  => $comment,
+        ];
+
+
+        $builder->insert($data);
+
+        $this->index();
     }
 
 

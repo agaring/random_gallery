@@ -9,6 +9,7 @@ class Comment_model extends Model
     protected $table         = 'comment';
     // Nom du champ de la clé primaire
     protected $primaryKey    = 'id';
+    protected $useAutoIncrement = true;
     // Champs utilisables
     protected $allowedFields = ['image_id', 'text'];
 
