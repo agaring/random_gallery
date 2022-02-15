@@ -14,7 +14,7 @@ class Comment_model extends Model
     protected $allowedFields = ['image_id', 'text'];
 
     // Type de retour => Chemin de l'entité à utiliser
-    protected $returnType    = 'App\Entities\Comment_entity';
+    protected $returnType    = 'App\Entities\Comment';
 
     // Utilisation ou non des dates (création / modification)
     protected $useTimestamps = false;

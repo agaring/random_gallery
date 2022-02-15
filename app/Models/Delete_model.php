@@ -13,7 +13,7 @@ class Delete_model extends Model
     protected $allowedFields = ['image_id', 'text'];
 
     // Type de retour => Chemin de l'entit� � utiliser
-    protected $returnType    = 'App\Entities\Comment_entity';
+    protected $returnType    = 'App\Entities\Comment';
 
     // Utilisation ou non des dates (cr�ation / modification)
     protected $useTimestamps = false;
