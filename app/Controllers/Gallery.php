@@ -27,13 +27,13 @@ class Gallery extends Controller
         echo view('gallery_view',$data);
     }
 
-    public function delete($id = 0, $page = 0, $firstId = "null", $lastId = "null")
+    public function delete($id = 0, $page = 0, $firstId = null, $lastId = null)
     {
         $db = \Config\Database::connect();
         $builder = $db->table('comment');
         $builder->delete(['id' => $id]);
-        
-        $this->index();
+
+        $this->index($firstId, $lastId, $page);
     }
 
     public function modify($id, $page, $firstid = null, $lastId = null)
@@ -42,11 +42,11 @@ class Gallery extends Controller
     }
 
     public function next($page, $lastId){
-        $this->index($lastId = $this->lastId, $this->lastid = $page);
+        $this->index(null, $lastId, $page);
     }
 
     public function previous($page, $firstId){
-        $this->index($firstId, $page);
+        $this->index($firstId, null, $page);
     }
 
 
