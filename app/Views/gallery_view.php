@@ -15,6 +15,8 @@ use App\Controllers\Gallery;
 </head>
 <body>
 <h1 style="text-align:center"><?php echo $title; ?></h1>
+
+<p><a href="<?= site_url("/auth") ?>">Se connecter</a></p>
 <table>
     <thead>
     <tr>
