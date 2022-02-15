@@ -6,4 +6,4 @@ Bienvenue sur le projet de l'equipe de:
 * Léa
 * Yanis
 
-Ne pas oublié d'aller sur la brance **dev** pour voir le develepomment en cours
+Ne pas oublié d'aller sur la branche **dev** pour voir le develepomment en cours
