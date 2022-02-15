@@ -25,14 +25,6 @@ class Auth extends BaseController
 
     public function save()
     {
-        // $validation = $this->validate([
-        //     'name'=>'required',
-        //     'email'=>'required|valid_email|is_unique[users.email]',
-        //     'password'=>'required|min_length[5]|max_length[12]',
-        //     'cpassword'=>'required|min_length[5]|max_length[12]|matches[password]',
-
-        // ]);
-
         $validation = $this->validate([
             'name'=>[
                 'rules'=> 'required', 
@@ -88,7 +80,7 @@ class Auth extends BaseController
             if(!$query){
                 return redirect()->back()->with('fail', 'Problème avec la bdd');
             }else{
-                return redirect()->to('auth/register')->with('success', 'Vous êtes bien inscrit');
+                return redirect()->to('/auth')->with('success', 'Vous êtes bien inscrit');
             }
         }
 
@@ -130,7 +122,7 @@ class Auth extends BaseController
             }else{
                 $user_id = $user_info['id'];
                 session()->set('loggedUser', $user_id);
-                return redirect()->to('/dashboard');
+                return redirect()->to('/gallery');
             }
         }
     }
