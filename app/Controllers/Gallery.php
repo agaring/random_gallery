@@ -8,7 +8,8 @@ use App\Models\Delete_model;
 
 class Gallery extends Controller
 {
-    public function index()
+
+    public function index($firstId = null, $lastId = null, $page = 0)
     {
         // Instanciation du modèle
         $objCommentModel       = new Comment_model();
@@ -18,55 +19,34 @@ class Gallery extends Controller
         $data['arrComments']    = $objCommentModel->findAll(); 
         $data['arrImages']      = $objImageModel->findall();
 
-        $data['firstId']        = null;
-        $data['lastId']         = null;
-        $data['page']           = 0;
-
+        $data['firstId']        = $firstId;
+        $data['lastId']         = $lastId;
+        $data['page']           = $page;
 
         // Affichage de la vue
         echo view('gallery_view',$data);
     }
 
-    public function delete($id, $page, $firstid)
+    public function delete($id = 0, $page = 0, $firstId = "null", $lastId = "null")
     {
-        $objDeleteModel = new Delete_model();
-        $objDeleteModel->delete_student_id($id);
+        $db = \Config\Database::connect();
+        $builder = $db->table('comment');
+        $builder->delete(['id' => $id]);
+        
+        $this->index();
     }
 
-    public function modify($id, $page, $firstid)
+    public function modify($id, $page, $firstid = null, $lastId = null)
     {
         
     }
 
     public function next($page, $lastId){
-        $objCommentModel       = new Comment_model();
-        $objImageModel         = new Image_model();
-
-        $data['title']          = "Gallery"; // titre
-        $data['arrComments']    = $objCommentModel->findAll(); 
-        $data['arrImages']      = $objImageModel->findall();
-
-        $data['page']           = $page;
-        $data['lastId']         = $lastId;
-
-
-        echo view('gallery_view', $data);  
+        $this->index($lastId = $this->lastId, $this->lastid = $page);
     }
 
     public function previous($page, $firstId){
-        $objCommentModel       = new Comment_model();
-        $objImageModel         = new Image_model();
-
-        $data['title']          = "Gallery"; // titre
-        $data['arrComments']    = $objCommentModel->findAll(); 
-        $data['arrImages']      = $objImageModel->findall();
-
-        $data['page']           = $page;
-        $data['firstId']        = $firstId;
-        $data['lastId']         = null ;
-
-
-        echo view('gallery_view', $data);  
+        $this->index($firstId, $page);
     }
 
 

@@ -5,22 +5,24 @@ use CodeIgniter\Model;
 
 class Delete_model extends Model
 {
-    // Nom de la table à utiliser
+    // Nom de la table ï¿½ utiliser
     protected $table         = 'comment';
-    // Nom du champ de la clé primaire
+    // Nom du champ de la clï¿½ primaire
     protected $primaryKey    = 'id';
     // Champs utilisables
     protected $allowedFields = ['image_id', 'text'];
 
-    // Type de retour => Chemin de l'entité à utiliser
+    // Type de retour => Chemin de l'entitï¿½ ï¿½ utiliser
     protected $returnType    = 'App\Entities\Comment_entity';
 
-    // Utilisation ou non des dates (création / modification)
+    // Utilisation ou non des dates (crï¿½ation / modification)
     protected $useTimestamps = false;
 
     function delete_comment($id){
-        $this->rg_db->where('id', $id);
-        $this->rg_db->delete('comment');
+        $objComment = new Delete_model();
+        echo $id;
+        $objComment->where('id', $id);
+        $objComment->delete('comment');
     }
 }
 

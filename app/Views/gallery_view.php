@@ -50,15 +50,15 @@ use App\Controllers\Gallery;
 
                             <?php 
                                 if (is_null($lastId)){   ?>
-                                        <td><a href="<?= site_url("gallery/modify")."/".$comment->id."/". $page ."/".$firstId ?>"><button type="button">Modifier</button></a>
-                                        <a href="<?= site_url("gallery/modify")."/".$comment->id."/". $page ."/".$firstId ?>"><button type="button">Supprimer</button></a></td>
+                                        <td><a href="<?= site_url("gallery/modify")."/".$comment->id."/". $page ."/".$firstId."/".null ?>"><button type="button">Modifier</button></a>
+                                        <a href="<?= site_url("gallery/delete")."/".$comment->id."/". $page ."/".$firstId."/" . null ?>"><button type="button">Supprimer</button></a></td>
                                     <?php
                                     }
                                         else
                                     {
                                         ?>
-                                        <td><a href="<?= site_url("gallery/delete")."/".$comment->id."/". $page ."/".$lastId ?>"><button type="button">Modifier</button></a>
-                                        <a href="<?= site_url("gallery/delete")."/".$comment->id."/". $page ."/".$lastId ?>"><button type="button">Supprimer</button></a></td>
+                                        <td><a href="<?= site_url("gallery/modify")."/".$comment->id."/". $page ."/". null ."/".$lastId ?>"><button type="button">Modifier</button></a>
+                                        <a href="<?= site_url("gallery/delete")."/".$comment->id."/". $page ."/". null ."/".$lastId ?>"><button type="button">Supprimer</button></a></td>
 
                                     <?php } ?>        
                                             
