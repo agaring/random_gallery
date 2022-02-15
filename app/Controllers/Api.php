@@ -16,7 +16,7 @@ class Api extends BaseController
     {
         $arrApi = (new ApiModel())->findAll();
 
-        return view('api\api_list', [
+        return view('api/api_list', [
             'title' => 'Liste des Apis',
             'arrApi' => $arrApi
         ]);
