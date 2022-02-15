@@ -1,6 +1,6 @@
 <?php
+/** @noinspection PhpUndefinedVariableInspection */
 use App\Controllers\Gallery;
-
 
 ?>
 <!DOCTYPE html>
@@ -42,7 +42,7 @@ use App\Controllers\Gallery;
                 <td>
                     <form action="<?= site_url("gallery/add"); ?>" method="post">
                     <input type="hidden" name="imageId" value="<?= $image->id?>" >
-                    <?= '<input type=image src="https://' . $image->path_to_image . '" width="500" height="500" >';?>
+                    <?= '<img src="https://' . $image->path_to_image . '" width="500" height="500" >';?>
                     <input type="text" name="comment" placeholder="Commentaire">
                     
                     <button type="submit">Ajouter</button>
