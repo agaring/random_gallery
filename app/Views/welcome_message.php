@@ -1,3 +1,7 @@
+<?php 
+ use CodeIgniter\Database\Config;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +10,7 @@
 	<meta name="description" content="The small framework with powerful features">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
+
 
 	<!-- STYLES -->
 
@@ -198,6 +203,7 @@
 <!-- HEADER: MENU + HEROE SECTION -->
 <header>
 
+
 	<div class="menu">
 		<ul>
 			<li class="logo"><a href="https://codeigniter.com" target="_blank"><img height="44" title="CodeIgniter Logo"
@@ -219,15 +225,16 @@
 
 	<div class="heroe">
 
-		<h1>Welcome to CodeIgniter <?= CodeIgniter\CodeIgniter::CI_VERSION ?></h1>
+		<h1>Bienvenue sur Random Gallery</h1>
 
-		<h2>The small framework with powerful features</h2>
+		<h2>Une galerie d'images aléatoires</h2>
 
 	</div>
 
 </header>
 
 <!-- CONTENT -->
+
 
 <section>
 
