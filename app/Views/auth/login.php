@@ -19,11 +19,13 @@
         <?php if(!empty(session()->getFlashdata('success'))) : ?>
             <div> <?= session()->getFlashdata('success'); ?></div>
         <?php endif ?>
-        <label>Email</label>
-        <input type="text" name="email" placeholder="Votre adresse mail" value="<?= set_value('email'); ?>">
+        <label>Email
+            <input type="text" name="email" placeholder="Votre adresse mail" value="<?= set_value('email'); ?>">
+        </label>
         <span><?= isset($validation) ? display_error($validation, 'email') : ''?> </span> 
-        <label>Mot de passe</label>
-        <input type="text" name="password" placeholder="Votre mot de passe" value="<?= set_value('password'); ?>">
+        <label>Mot de passe
+            <input type="password" name="password" placeholder="Votre mot de passe" value="<?= set_value('password'); ?>">
+        </label>
         <span><?= isset($validation) ? display_error($validation, 'password') : ''?> </span> 
         <button type="submit">Connexion</button>
         <br>

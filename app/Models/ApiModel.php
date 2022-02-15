@@ -26,10 +26,10 @@ class ApiModel extends Model
     /**
      * Get a random image API from a short name
      * @param string $short_name Short name of API
-     * @return Api A random images API
+     * @return ?Api A random images API
      * @noinspection PhpIncompatibleReturnTypeInspection
      */
-    public function getFirstByShortName(string $short_name): Api
+    public function getFirstByShortName(string $short_name): ?Api
     {
         return $this->where('short_name', $short_name)->first();
     }
