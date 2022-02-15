@@ -23,7 +23,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://rg.local';
+    public $baseURL = 'http://rg.dev';
 
     /**
      * --------------------------------------------------------------------------
