@@ -118,18 +118,18 @@ CREATE TABLE IF NOT EXISTS `image` (
 --
 
 INSERT INTO `image` (`id`, `category`, `path_to_image`) VALUES
-(1, 1, 'purr.objects-us-east-1.dream.io/i/rrXar.png'),
-(2, 1, 'purr.objects-us-east-1.dream.io/i/Iq0Pq.jpg'),
-(3, 1, 'purr.objects-us-east-1.dream.io/i/V5ZSH.jpg'),
-(4, 1, 'purr.objects-us-east-1.dream.io/i/17202788_1446865758698091_5564738866603964311_n.jpg'),
-(5, 1, 'purr.objects-us-east-1.dream.io/i/hy5mXWM.jpg'),
-(6, 1, 'purr.objects-us-east-1.dream.io/i/rrXar.png'),
-(7, 1, 'purr.objects-us-east-1.dream.io/i/cFaGX.jpg'),
-(8, 1, 'purr.objects-us-east-1.dream.io/i/dscn9547.jpg'),
-(9, 1, 'purr.objects-us-east-1.dream.io/i/thyc9.gif'),
-(10, 1, 'purr.objects-us-east-1.dream.io/i/3EGnA.gif'),
-(12, 1, 'purr.objects-us-east-1.dream.io/i/4-day-old.jpeg'),
-(13, 1, 'purr.objects-us-east-1.dream.io/i/h2faG.jpg');
+(1, 1, 'https://purr.objects-us-east-1.dream.io/i/rrXar.png'),
+(2, 1, 'https://purr.objects-us-east-1.dream.io/i/Iq0Pq.jpg'),
+(3, 1, 'https://purr.objects-us-east-1.dream.io/i/V5ZSH.jpg'),
+(4, 1, 'https://purr.objects-us-east-1.dream.io/i/17202788_1446865758698091_5564738866603964311_n.jpg'),
+(5, 1, 'https://purr.objects-us-east-1.dream.io/i/hy5mXWM.jpg'),
+(6, 1, 'https://purr.objects-us-east-1.dream.io/i/rrXar.png'),
+(7, 1, 'https://purr.objects-us-east-1.dream.io/i/cFaGX.jpg'),
+(8, 1, 'https://purr.objects-us-east-1.dream.io/i/dscn9547.jpg'),
+(9, 1, 'https://purr.objects-us-east-1.dream.io/i/thyc9.gif'),
+(10, 1, 'https://purr.objects-us-east-1.dream.io/i/3EGnA.gif'),
+(12, 1, 'https://purr.objects-us-east-1.dream.io/i/4-day-old.jpeg'),
+(13, 1, 'https://purr.objects-us-east-1.dream.io/i/h2faG.jpg');
 
 -- --------------------------------------------------------
 

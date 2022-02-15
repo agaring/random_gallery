@@ -17,6 +17,8 @@ use App\Entities\Api;
 </head>
 <body>
 
+<a href="<?= route_to('')?>">Retour</a>
+
 <h1><?php echo $title ?></h1>
 
 <table>
@@ -44,7 +46,7 @@ use App\Entities\Api;
             <td><?php echo $api->data_selector ?></td>
             <td>
                 <a href="<?= route_to('api_test', $api->short_name) ?>">test</a>
-                <a href="">fillDB</a>
+                <a href="<?= route_to('api_filldb', $api->short_name, 10)?>">fillDB</a>
                 <a href="">edit</a>
                 <a href="">delete</a>
             </td>

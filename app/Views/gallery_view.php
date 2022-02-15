@@ -45,10 +45,12 @@ use App\Controllers\Gallery;
                 <td>
                     <form action="<?= site_url("gallery/add"); ?>" method="post">
                     <input type="hidden" name="imageId" value="<?= $image->id?>" >
-                    <?= '<img src="https://' . $image->path_to_image . '" width="500" height="500" >';?>
-                    <input type="text" name="comment" placeholder="Commentaire">
-                    
-                    <button type="submit">Ajouter</button>
+                    <?= '<img src="' . $image->path_to_image . '" width="500" height="500" >';?><br>
+                        <label> Commentaire:
+                            <input type="text" name="comment" placeholder="Commentaire">
+                        </label>
+
+                        <button type="submit">Ajouter</button>
                     <br>
                 </form>
                 </td>

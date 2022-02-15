@@ -37,6 +37,8 @@ $routes->get('/api', 'Api::index', ['as' => 'api_index']);
 $routes->add('/api/test/(:segment)', 'Api::test/$1', ['as' => 'api_test']);
 $routes->add('/api/test/(:segment)/(:num)', 'Api::test/$1/$2', ['as' => 'api_test_nb']);
 
+$routes->add('/api/fillDb/(:segment)/(:num)', 'Api::fillDb/$1/$2', ['as' => 'api_filldb']);
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
