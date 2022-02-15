@@ -44,7 +44,7 @@ class Api extends Entity
      * @param int $n Number of image
      * @return array|string|null Array of image links, null if n smaller or equal to 0
      */
-    public function getImage(int $n = 1): array|string|null
+    public function getImageLinks(int $n = 1): array|string|null
     {
         if ($n === 1) {
             $response = $this->client->get('https://' . $this->request_url, ['timeout' => 3]);
@@ -53,7 +53,7 @@ class Api extends Entity
             $arrData = [];
             $i = 0;
             while ($i < $n) {
-                $arrData[] = $this->getImage();
+                $arrData[] = $this->getImageLinks();
                 $i++;
             }
             return $arrData;

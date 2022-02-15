@@ -43,7 +43,7 @@ use App\Entities\Api;
             <td><?php echo $api->request_url ?></td>
             <td><?php echo $api->data_selector ?></td>
             <td>
-                <a href="">test</a>
+                <a href="<?= route_to('api_test', $api->short_name) ?>">test</a>
                 <a href="">fillDB</a>
                 <a href="">edit</a>
                 <a href="">delete</a>

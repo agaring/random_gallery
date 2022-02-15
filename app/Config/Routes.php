@@ -31,8 +31,11 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-$routes->get('/api', 'Api::index');
+$routes->get('/', 'Gallery::index');
+$routes->get('/api', 'Api::index', ['as' => 'api_index']);
+
+$routes->add('/api/test/(:segment)', 'Api::test/$1', ['as' => 'api_test']);
+$routes->add('/api/test/(:segment)/(:num)', 'Api::test/$1/$2', ['as' => 'api_test_nb']);
 
 /*
  * --------------------------------------------------------------------
